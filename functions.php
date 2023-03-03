@@ -343,10 +343,16 @@ add_action( 'enqueue_block_editor_assets', 'hamzoooz_block_editor_assets' );
 require get_template_directory() . '/include/admin/function-admin.php';
 require get_template_directory() . '/include/admin/functions/enqueue.php';
 require get_template_directory() . '/include/admin/functions/theme-suports.php';
+// require get_template_directory() . '/include/functions/acive-and-deacive-theme-suport.php';
+// /opt/lampp/htdocs/wordpress/wp-content/themes/sunset-theme-2/include/admin/functions/theme-suports.php
+
+require get_template_directory() . '/include/admin/template/custome-post-type.php';
 // require get_template_directory() . '/include/admin/template/hamzoooz-theme-suport.php';
-require get_template_directory() . '/include/functions/acive-and-deacive-theme-suport.php';
+// require get_template_directory() . '/include/functions/contact-form.php';
 // /opt/lampp/htdocs/wordpress/wp-content/themes/sunset-theme-2/
 
+// custome-post-type.php
+// /opt/lampp/htdocs/wordpress/wp-content/themes/sunset-theme-2/include/admin/template/custome-post-type.php
 
 // require get_template_directory() . '/include/theme-info.php';
 
