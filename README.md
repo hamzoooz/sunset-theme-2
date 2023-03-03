@@ -1,1 +1,2 @@
-# sunset-theme-2
+# wordpress-hamzoooz-theme
+ wordpress-hamzoooz-theme

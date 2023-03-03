@@ -1,0 +1,38 @@
+jQuery(document).ready(function ($) {
+
+    var mediaUploader;
+
+    $('#upload-button').on('click', function (e) {
+        e.preventDefault();
+        if (mediaUploader) {
+            mediaUploader.open();
+            return;
+        }
+
+        mediaUploader = wp.media.frames.file_frame = wp.media({
+            title: 'Choose a Profile Picture',
+            button: {
+                text: 'Choose Picture'
+            },
+            multiple: false
+        });
+
+        mediaUploader.on('select', function () {
+            attachment = mediaUploader.state().get('selection').first().toJSON();
+            $('#profile-picture-hamzoooz').val(attachment.url);
+            $('#profile-picture-preview').css('background-image', 'url(' + attachment.url + ')');
+        });
+
+        mediaUploader.open();
+
+    });
+    $('#remove-picture').on('click', function (e) {
+        e.preventDefault();
+        var answre = confirm('Are You Sure You Want To Remove Your Profile Picture ? ');
+        if (answre == true) {
+            $('#profile-picture-hamzoooz').val('');
+            $('.sunset-general-form').submit();
+        }
+    });
+
+});
