@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
-    var updateCSS = function () { $("#sunset_css").val(editor.getSession().getValue()); }
-    $("#save-custom-css-form").submit(updateCSS);
+    var updateCSS = function () { $("#hamzoooz_custome_css").val(editor.getSession().getValue()); }
+    $("#custom-css-save").submit(updateCSS);
 
 });
 

@@ -88,7 +88,7 @@ function hamzoooz_add_custom_settings(){
 	add_settings_section('contact-form-id', 'contact-form', 'hamzoooz_contact_form_callback_section', 'hamzoooz_custome_contact_form_subpage');
 	add_settings_field('contact-form-field-id', 'Contact Form', 'hamzoooz_contact_form_field_callback', 'hamzoooz_custome_contact_form_subpage', 'contact-form-id' );
 	
-	// Active all future  Setting and Section
+	// css Setting and Section
 	register_setting('custom-css-group', 'hamzoooz_custome_css','sanitize_custom_css');
 	add_settings_section('custom-css-id', 'custom-css', 'hamzoooz_custom_css_group_section', 'hamzoooz_custome_css_subpage');
 	add_settings_field('custom-css-field-id', 'custom css', 'hamzoooz_custom_css_field_callback', 'hamzoooz_custome_css_subpage', 'custom-css-id' );
@@ -160,7 +160,6 @@ function twitter_sanitize_handler($input){
 };
 // Sanitize Textaera in Custom Css  
 function sanitize_custom_css($input){
-
 	$output = esc_textarea($input);
 	return $output;
 };
@@ -234,13 +233,18 @@ function hamzoooz_custom_css_group_section(){
 }
 
 function hamzoooz_custom_css_field_callback(){	
-	if (isset($_POST['hamzoooz_custome_css'])) {
-		$hamzoooz_custome_css = $_POST['hamzoooz_custome_css'];
-		update_option('hamzoooz_custome_css', $hamzoooz_custome_css);
-	} else {
-		$hamzoooz_custome_css = get_option('hamzoooz_custome_css');
-	}
-
-	$hamzoooz_custome_css = (empty($hamzoooz_custome_css) ? '/* hamzoooz Custom CSS */ ' : '');
-	echo '<div id="editor"> '.$hamzoooz_custome_css.' </div><textarea id="hamzoooz_custome_css" name="hamzoooz_custome_css" style="display:none;visibility:hidden" >'.$hamzoooz_custome_css.'</textarea>'; 
+	// if (isset($_POST['hamzoooz_custome_css'])) {
+	// 	$hamzoooz_custome_css = $_POST['hamzoooz_custome_css'];
+	// 	update_option('hamzoooz_custome_css', $hamzoooz_custome_css);
+	// } else {
+	// 	$hamzoooz_custome_css = get_option('hamzoooz_custome_css');
+	// }
+	
+	$hamzoooz_custome_css = get_option('hamzoooz_custome_css');
+	$hamzoooz_custome_css = (empty($hamzoooz_custome_css) ? '/* hamzoooz Custom CSS */ ' : $hamzoooz_custome_css );
+	echo '<textarea id="hamzoooz_custome_css" name="hamzoooz_custome_css" style="display:none;visibility:hidden" >'.$hamzoooz_custome_css.'</textarea> 
+	<div id="editor"> '.$hamzoooz_custome_css.' </div>'; 
 }
+
+
+

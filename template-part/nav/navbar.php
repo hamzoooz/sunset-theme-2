@@ -3,7 +3,10 @@
 ?>
 
 <!-- /container -->
+
 <div class="container">
+<div class="header-container background-image text-center " style="background-image:url(<?php header_image(); ?>)">
+
 <nav class="navbar-header nav-tabs justify-content-start navbar navbar-expand-lg " style="background-color: #156580;" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?php bloginfo("url") ?>"><?php bloginfo("name") ?></a>
