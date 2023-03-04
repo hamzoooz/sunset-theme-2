@@ -14,6 +14,7 @@ if ( ! function_exists( 'hamzooooz_theme_setup' ) ) :
 	 */
 
 	function hamzooooz_theme_setup() {
+		// add_theme_support( 'post-thumbnails', 'title-tag', 'html5', 'automatic-feed-links', 'post-formats', 'menus', 'custom-background', 'custom-header', 'custom-logo', 'responsive-embeds', 'woocommerce', 'gutenberg', 'custom-css', 'custom-colors', 'custom-font-sizes', 'custom-fonts', 'custom-gradients', 'custom-line-height' );
 
 		// Make theme available for translation. Translations can be filed in the /languages/ directory.
 		// load_theme_hamzoooz( 'hamzoooz', get_template_directory() . '/languages' );
@@ -55,13 +56,6 @@ if ( ! function_exists( 'hamzooooz_theme_setup' ) ) :
 			'flex-width'  => true,
 		) ) );
 
-		// Set up the WordPress core custom header feature.
-		add_theme_support('custom-header', apply_filters( 'hamzoooz_custom_header_args', array(
-			'header-text' => false,
-			'width'       => 1190,
-			'height'      => 250,
-			'flex-height' => true,
-		) ) );
 
 		// Add Theme Support for wooCommerce
 		add_theme_support( 'woocommerce' );
