@@ -54,3 +54,8 @@ $args = array(
 register_post_type( 'contacts', $args );
 }
 add_action( 'init', 'hamzoooz_contact_custom_post_type' );
+
+$hamzoooz_contact_form = get_option( 'hamzoooz_contact_form' );
+if( @$hamzoooz_contact_form  == 1 ){
+	echo "it's Active";
+}

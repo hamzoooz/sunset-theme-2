@@ -220,7 +220,6 @@ function hamzoooz_contact_form_callback_section(){
 function hamzoooz_contact_form_field_callback(){
 	if (isset($_POST['hamzoooz_contact_form'])) {
 		$hamzoooz_contact_form = $_POST['hamzoooz_contact_form'];
-		
 		update_option('hamzoooz_contact_form', $hamzoooz_contact_form);
 	} else {
 		$hamzoooz_contact_form = get_option('hamzoooz_contact_form');
@@ -229,14 +228,19 @@ function hamzoooz_contact_form_field_callback(){
 		echo  '<label> <input type="checkbox" id="hamzoooz_contact_form" name="hamzoooz_contact_form" value="1" ' . $checked . '>  </label>';
 }
 
-
 // Custom Css setting section 
 function hamzoooz_custom_css_group_section(){
 	echo 'Customize Your Theme With Your own CSS';
 }
 
-function hamzoooz_custom_css_field_callback(){			
-	$hamzoooz_custome_css = get_option('hamzoooz_custome_css');
-	$css = (empty($hamzoooz_custome_css) ? '' : '');
-	echo '<div id="editor"> '  . $css .  ' </div><texterea id="hamzoooz_custome_css" name="hamzoooz_custome_css" style="display:none;visibility:hidden" >' .$css. '</texterea>'; 
+function hamzoooz_custom_css_field_callback(){	
+	if (isset($_POST['hamzoooz_custome_css'])) {
+		$hamzoooz_custome_css = $_POST['hamzoooz_custome_css'];
+		update_option('hamzoooz_custome_css', $hamzoooz_custome_css);
+	} else {
+		$hamzoooz_custome_css = get_option('hamzoooz_custome_css');
+	}
+
+	$hamzoooz_custome_css = (empty($hamzoooz_custome_css) ? '/* hamzoooz Custom CSS */ ' : '');
+	echo '<div id="editor"> '.$hamzoooz_custome_css.' </div><textarea id="hamzoooz_custome_css" name="hamzoooz_custome_css" style="display:none;visibility:hidden" >'.$hamzoooz_custome_css.'</textarea>'; 
 }
