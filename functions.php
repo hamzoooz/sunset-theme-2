@@ -10,37 +10,9 @@
  * @since repotheme 1.0
  */
 
-require(get_template_directory() . '/include/functions/hamzoooz_theme_suport.php');
-require(get_template_directory() . '/include/functions/hamzoooz_theme_styles_scripts.php');
 
 
 
-
-/**
- * add register nav menu
- * @since 1.0
- * 
- * add by @hamzoooz
- * 
- */
-
-function wpk_bootstrap_menu() {
-	register_nav_menu('bootstrap-menu',__( 'Bootstrap 5 Menu' ));
-	}
-	add_action( 'init', 'wpk_bootstrap_menu' );
-	
-			
-function hamzoooz_bootstrap_menu(){ 
-	wp_nav_menu(array(
-		'theme_location' => 'bootstrap-menu',
-		'container' => false,
-		'menu_class' => '',
-		'fallback_cb' => '__return_false',
-		'items_wrap' => '<ul id="%1$s" class="nav justify-content-end navbar-nav me-auto mb-2 mb-md-0 %2$s">%3$s</ul>',
-		'depth' => 2,
-		'walker' => new bootstrap_5_wp_nav_menu_walker()
-	));
-}
 
 // Add costomize The excerpt
 function hamzoooz_extend_excetrpt_length($length) {
@@ -332,24 +304,21 @@ function hamzoooz_block_editor_assets() {
 }
 add_action( 'enqueue_block_editor_assets', 'hamzoooz_block_editor_assets' );
 
-
-
-
-
-
-
 // Admin Page  
 
 require get_template_directory() . '/include/admin/function-admin.php';
 require get_template_directory() . '/include/admin/functions/enqueue.php';
 require get_template_directory() . '/include/admin/functions/theme-suports.php';
-// require get_template_directory() . '/include/functions/acive-and-deacive-theme-suport.php';
-// /opt/lampp/htdocs/wordpress/wp-content/themes/sunset-theme-2/include/admin/functions/theme-suports.php
+
+
 
 require get_template_directory() . '/include/admin/template/custome-post-type.php';
-// require get_template_directory() . '/include/admin/template/hamzoooz-theme-suport.php';
-// require get_template_directory() . '/include/functions/contact-form.php';
-// /opt/lampp/htdocs/wordpress/wp-content/themes/sunset-theme-2/
+
+require(get_template_directory() . '/include/functions/hamzoooz_theme_suport.php');
+require(get_template_directory() . '/include/functions/hamzoooz_theme_styles_scripts.php');
+require(get_template_directory() . '/include/functions/cleanup.php');
+require(get_template_directory() . '/include/functions/post-loop.php');
+
 
 // custome-post-type.php
 // /opt/lampp/htdocs/wordpress/wp-content/themes/sunset-theme-2/include/admin/template/custome-post-type.php

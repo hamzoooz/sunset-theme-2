@@ -17,50 +17,31 @@ get_header();?>
 <?php echo 'this front page'; ?>
 <?php echo get_template_part('/template-part/slider/slider-with-title' ); ?>
 
+
 <?php 
-if(hamzoooz_display_theme_modification()["boxes_options"]){ ?>
-    <div class="container">
-        <div class="row ">
-        <?php
-        $number_of_boxex =  hamzoooz_display_theme_modification()["number_of_boxex"];
 
-        for($i=1; $i<=$number_of_boxex; $i++){
-            $title_box_in_front = 'title_box'. $i;
-            $content_box_in_front = 'p_box'. $i;?>
-            
-            <div class="col-<?php echo 12/$number_of_boxex; ?> main-post p-2 ">
-            
-            <h2><?php //echo hamzoooz_display_theme_modification()[$title_box_in_front] ?></h2>
-            <h2><?php echo get_theme_mod('hamzoooz_add_box' . $i) ?></h2>
-            <p><?php echo get_theme_mod('hamzoooz_add_box_desc' . $i) ?></p>
-            
-            <p><?php //echo hamzoooz_display_theme_modification()[$content_box_in_front] ?></p>
+get_header();?>
+
+<?php echo get_template_part('/template-part/slider/slider-with-title' ); ?>
+<div id="primary" class="content-area">
+    <main id="main" class="site-main " role="main">
+        <div class="container">
+            <?php
+                if(have_posts()){
+                    while(have_posts()):
+                        the_post();
+                            get_template_part('/template-part/content/content', get_post_format());
+                endwhile;
+            }else{
+                get_template_part('/template-part/content/content-none' );  
+            }?>
         </div>
-        <?php } ?>
-    </div>
+    </main>
 </div>
-<?php } ?>
 
-<!-- <?php // echo get_template_part('/template-part/slider/slider-with-title-coustoum' ); ?> -->
-<?php
-    if(have_posts()){
-        while(have_posts()){
-            the_post(); ?>
-                <div class="container">
-                    <div class="main-post ">
-                        <h3><a href="<?php the_permalink() ?>"> <?php the_title() ?> </a></h3>
-                        <?php  get_template_part('/template-part/meta/meta', 'header' ) ?>
-                        <?php  get_template_part('/template-part/content/content-index' ) ?>
-                        <?php  get_template_part('/template-part/meta/meta', 'footer' ) ?>
-                    </div>
-                </div>
-                <?php                    
-        }
-    }else{
-        get_template_part('/template-part/content/content-none' );  
-    }?>
+<div class="clearfix"></div>
+<?php  get_template_part('/template-part/pagination/pagination', '' ); ?>
 
-    <div class="clearfix"></div>
-    <?php  get_template_part('/template-part/pagination/pagination', '' ); ?>
+<?php get_footer();?> 
 
-    <?php get_footer();?> 
+<!-- label:ghp_e93ubuerduzdvwkmaef926tv8nzbli1axk05  -->

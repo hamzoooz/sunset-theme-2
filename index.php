@@ -13,28 +13,26 @@
  * @since 2020 
  */
 
-// echo get_template_part('template-part/test', 'test');
-// wp_die();
 get_header();?>
 
 <?php echo get_template_part('/template-part/slider/slider-with-title' ); ?>
-<?php
-    if(have_posts()){
-        while(have_posts()){
-            the_post(); ?>
-                <div class="container">
-                    <div class="main-post ">
-                        <h3><a href="<?php the_permalink() ?>"> <?php the_title() ?> </a></h3>
-                        <?php  get_template_part('/template-part/meta/meta', 'header' ) ?>
-                        <?php  get_template_part('/template-part/content/content-index' ) ?>
-                        <?php  get_template_part('/template-part/meta/meta', 'footer' ) ?>
-                    </div>
-                </div>
-                <?php                    
-        }
-    }else{
-        get_template_part('/template-part/content/content-none' );  
-    }?>
+<div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+        <div class="container">
+
+            
+            <?php
+                if(have_posts()){
+                    while(have_posts()):
+                        the_post();
+                            get_template_part('/template-part/content/content', get_post_format());
+                endwhile;
+            }else{
+                get_template_part('/template-part/content/content-none' );  
+            }?>
+        </div>
+    </main>
+</div>
 
     <div class="clearfix"></div>
     <?php  get_template_part('/template-part/pagination/pagination', '' ); ?>
